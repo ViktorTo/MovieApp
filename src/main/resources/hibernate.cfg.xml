@@ -15,14 +15,7 @@
         <property name="format_sql">false</property>
         <property name="hbm2ddl.auto">update</property>
 
-<!--        <mapping class="com.travel.entity.City"/>-->
-<!--        <mapping class="com.travel.entity.Country"/>-->
-<!--        <mapping class="com.travel.entity.Countryinfo"/>-->
-<!--        <mapping class="com.travel.entity.Countrylanguage"/>-->
-<!--        <mapping class="com.travel.entity.CountrylanguageId"/>-->
-<!--        <mapping class="com.travel.entity.Customer"/>-->
-<!--        <mapping class="com.travel.entity.Address"/>-->
-<!--        <mapping class="com.travel.entity.Ticket"/>-->
+        <mapping class="com.coolfilm.movieapp.entity.Film"/>
 
     </session-factory>
 </hibernate-configuration>
