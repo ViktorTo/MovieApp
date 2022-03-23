@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class DatabaseSession {
+
     private final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public Session startSession() {
