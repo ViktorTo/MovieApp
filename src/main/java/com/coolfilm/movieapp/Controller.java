@@ -64,9 +64,9 @@ public class Controller implements Initializable {
 
         }
         if (event.getSource() == deleteButton) {
-
-            //kod för delete button
-
+            FilmFavourite filmFavourite = filmFavTable.getSelectionModel().getSelectedItem();
+            favDAO.delete(filmFavourite.getId());
+            filmFavTable.setItems(FXCollections.observableArrayList(favDAO.readAllAsList()));
         }
         if(event.getSource() == confirmButton) {
 
@@ -92,7 +92,6 @@ public class Controller implements Initializable {
     @FXML
     public void searchFilmList(KeyEvent keyEvent) {
 
-
         List<Film> listOfFilms = filmDAO.searchFilmList(searchBar.getText());
 
         filmTbl.setItems(FXCollections.observableArrayList(listOfFilms));
@@ -101,19 +100,11 @@ public class Controller implements Initializable {
 
     @FXML
     public void addSelectedToFav(MouseEvent event) {
-
-
-
         Film filmFavourite = filmTbl.getSelectionModel().getSelectedItem();
-
         FilmFavourite filmFav = new FilmFavourite();
-
         filmFav.setFilm(filmFavourite);
         favDAO.create(filmFav);
-
         filmFavTable.setItems(FXCollections.observableArrayList(favDAO.readAllAsList()));
-
-
 
     }
 }

@@ -46,7 +46,7 @@ public class FilmFavouriteDAO implements DataAccessObject<FilmFavourite>{
     @Override
     public List<FilmFavourite> readAllAsList() {
         Session session = databaseSession.startSession();
-        List<FilmFavourite> filmFavouriteList = session.createQuery("SELECT f FROM FilmFavourite f" , FilmFavourite.class)
+        List<FilmFavourite> filmFavouriteList = session.createQuery("SELECT f FROM FilmFavourite f LEFT JOIN FETCH f.film" , FilmFavourite.class)
                 .getResultList();
         databaseSession.endSession(session);
         return filmFavouriteList;
