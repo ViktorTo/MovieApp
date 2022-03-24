@@ -12,7 +12,7 @@ public class Film {
     private String title;
 
     @Column(name = "rating")
-    private int rating;
+    private Double rating;
 
     @Id
     @Column(name = "id", length = 100)
@@ -26,11 +26,11 @@ public class Film {
         this.id = id;
     }
 
-    public int getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 
