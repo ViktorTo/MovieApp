@@ -22,9 +22,10 @@ public class FilmFavouriteDAO implements DataAccessObject<FilmFavourite>{
     @Override
     public void create(FilmFavourite data) {
         Session session = databaseSession.startSession();
-        List<FilmFavourite> fav = session.createQuery("SELECT f FROM FilmFavourite f")
+        List<FilmFavourite> fav = session.createQuery("SELECT f FROM FilmFavourite f WHERE f.film.id = :id")
+                .setParameter("id", data.getFilm().getId())
                 .getResultList();
-        
+        System.out.println(readAllAsList().size());
         if(fav.size() == 0) {
             session.persist(data);
         }
