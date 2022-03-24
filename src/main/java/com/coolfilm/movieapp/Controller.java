@@ -1,7 +1,9 @@
 package com.coolfilm.movieapp;
 
 import com.coolfilm.movieapp.DAO.FilmDAO;
+import com.coolfilm.movieapp.DAO.FilmFavouriteDAO;
 import com.coolfilm.movieapp.entity.Film;
+import com.coolfilm.movieapp.entity.FilmFavourite;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +24,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     private final FilmDAO filmDAO = new FilmDAO();
+    private final FilmFavouriteDAO favDAO = new FilmFavouriteDAO();
 
     @FXML
     private TableView<Film> filmTbl;
@@ -34,7 +38,10 @@ public class Controller implements Initializable {
     private Button favsButton;
 
     @FXML
-    private TableColumn<?, ?> favsCol;
+    private TableColumn<FilmFavourite, Film> favsCol;
+
+    @FXML
+    private TableView<FilmFavourite> filmFavTable;
 
     @FXML
     private TableColumn<Film, String> idCol;
@@ -75,7 +82,10 @@ public class Controller implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<Film, String>("id"));
         titleCol.setCellValueFactory(new PropertyValueFactory<Film, String>("title"));
         ratingCol.setCellValueFactory(new PropertyValueFactory<Film, Double>("rating"));
+        favsCol.setCellValueFactory(new PropertyValueFactory<FilmFavourite, Film>("film"));
         filmTbl.getItems().addAll(filmDAO.readAllAsList());
+
+        filmFavTable.setItems(FXCollections.observableArrayList(favDAO.readAllAsList()));
 
     }
 
@@ -86,6 +96,24 @@ public class Controller implements Initializable {
         List<Film> listOfFilms = filmDAO.searchFilmList(searchBar.getText());
 
         filmTbl.setItems(FXCollections.observableArrayList(listOfFilms));
+
+    }
+
+    @FXML
+    public void addSelectedToFav(MouseEvent event) {
+
+
+
+        Film filmFavourite = filmTbl.getSelectionModel().getSelectedItem();
+
+        FilmFavourite filmFav = new FilmFavourite();
+
+        filmFav.setFilm(filmFavourite);
+        favDAO.create(filmFav);
+
+        filmFavTable.setItems(FXCollections.observableArrayList(favDAO.readAllAsList()));
+
+
 
     }
 }
