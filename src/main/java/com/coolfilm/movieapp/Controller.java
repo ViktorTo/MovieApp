@@ -39,6 +39,7 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<?, ?> favsCol;
 
+
     @FXML
     private TableColumn<Film, String> idCol;
 
