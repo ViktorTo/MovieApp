@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +25,8 @@ public class Controller implements Initializable {
 
     @FXML
     private TableView<Film> filmTbl;
+    
+
     @FXML
     private Button confirmButton;
 
@@ -82,10 +85,15 @@ public class Controller implements Initializable {
     @FXML
     public void searchFilmList(KeyEvent keyEvent) {
 
-
         List<Film> listOfFilms = filmDAO.searchFilmList(searchBar.getText());
 
         filmTbl.setItems(FXCollections.observableArrayList(listOfFilms));
+
+    }
+    @FXML
+    public void addSelectedToFavs(MouseEvent event) {
+
+        System.out.println(filmTbl.getSelectionModel().getSelectedItem());
 
     }
 }

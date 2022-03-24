@@ -16,7 +16,7 @@
             <TableColumn fx:id="ratingCol" prefWidth="377.5" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Placement" />
         </columns>
       </TableView>
-      <Button fx:id="favsButton" layoutX="706.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="33.0" prefWidth="114.0" style="-fx-background-color: #E6DA00; -fx-font-weight: bold; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0); -fx-text-fill: white; -fx-stroke-width: 2px; -fx-stroke: black;" text="★ Favourite" textFill="WHITE" AnchorPane.leftAnchor="706.0">
+      <Button fx:id="favsButton" layoutX="706.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAction" onMousePressed="#addSelectedToFavs" prefHeight="33.0" prefWidth="114.0" style="-fx-background-color: #E6DA00; -fx-font-weight: bold; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0); -fx-text-fill: white; -fx-stroke-width: 2px; -fx-stroke: black;" text="★ Favourite" textFill="WHITE" AnchorPane.leftAnchor="706.0">
          <font>
             <Font name="Century Gothic" size="13.0" />
          </font>
@@ -38,6 +38,6 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="searchBar" layoutX="356.0" layoutY="311.0" onKeyPressed="#searchFilmList" />
+      <TextField fx:id="searchBar" layoutX="356.0" layoutY="311.0" onKeyTyped="#searchFilmList" />
    </children>
 </AnchorPane>
