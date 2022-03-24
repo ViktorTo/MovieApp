@@ -26,7 +26,7 @@ public class Controller implements Initializable {
     @FXML
     private TableView<Film> filmTbl;
 
-    
+
     @FXML
     private Button confirmButton;
 
