@@ -9,11 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="905.0" style="-fx-background-color: #332E30;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coolfilm.movieapp.Controller">
    <children>
-      <TableView layoutY="-1.0" prefHeight="284.0" prefWidth="906.0" style="-fx-background-color: #292526; -fx-border-color: #262440;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+      <TableView fx:id="filmTbl" layoutY="-1.0" prefHeight="284.0" prefWidth="906.0" style="-fx-background-color: #292526; -fx-border-color: #262440;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="151.0" resizable="false" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Id" />
             <TableColumn fx:id="titleCol" prefWidth="377.5" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Title" />
-            <TableColumn fx:id="ratingCol" prefWidth="377.5" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Rating" />
+            <TableColumn fx:id="ratingCol" prefWidth="377.5" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Placement" />
         </columns>
       </TableView>
       <Button fx:id="favsButton" layoutX="706.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="33.0" prefWidth="114.0" style="-fx-background-color: #E6DA00; -fx-font-weight: bold; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0); -fx-text-fill: white; -fx-stroke-width: 2px; -fx-stroke: black;" text="★ Favourite" textFill="WHITE" AnchorPane.leftAnchor="706.0">
