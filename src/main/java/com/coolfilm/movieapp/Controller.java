@@ -2,19 +2,26 @@ package com.coolfilm.movieapp;
 
 import com.coolfilm.movieapp.DAO.FilmDAO;
 import com.coolfilm.movieapp.entity.Film;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
+    private final FilmDAO filmDAO = new FilmDAO();
+
     @FXML
     private TableView<Film> filmTbl;
     @FXML
@@ -37,6 +44,9 @@ public class Controller implements Initializable {
 
     @FXML
     private TableColumn<Film, String> titleCol;
+
+    @FXML
+    private TextField searchBar;
 
     @FXML
     public void handleAction(ActionEvent event) throws IOException {
@@ -66,6 +76,16 @@ public class Controller implements Initializable {
         titleCol.setCellValueFactory(new PropertyValueFactory<Film, String>("title"));
         ratingCol.setCellValueFactory(new PropertyValueFactory<Film, Integer>("rating"));
         filmTbl.getItems().addAll(filmDAO.readAllAsList());
+
+    }
+
+    @FXML
+    public void searchFilmList(KeyEvent keyEvent) {
+
+
+        List<Film> listOfFilms = filmDAO.searchFilmList(searchBar.getText());
+
+        filmTbl.setItems(FXCollections.observableArrayList(listOfFilms));
 
     }
 }
