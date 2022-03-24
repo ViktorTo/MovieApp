@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="905.0" style="-fx-background-color: #332E30;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coolfilm.movieapp.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="895.0" style="-fx-background-color: #332E30;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.coolfilm.movieapp.Controller">
    <children>
-      <TableView fx:id="filmTbl" layoutY="-1.0" prefHeight="284.0" prefWidth="905.0" style="-fx-background-color: #292526; -fx-border-color: #262440;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+      <TableView fx:id="filmTbl" layoutX="5.0" layoutY="5.0" prefHeight="278.0" prefWidth="896.0" style="-fx-background-color: #292526; -fx-border-color: #262440;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="5.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="62.39996647834778" resizable="false" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Id" />
-            <TableColumn fx:id="titleCol" prefWidth="735.1999664306641" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Title" />
-            <TableColumn fx:id="ratingCol" prefWidth="109.59991455078125" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Rating" />
+            <TableColumn fx:id="titleCol" prefWidth="706.3999404907227" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Title" />
+            <TableColumn fx:id="ratingCol" prefWidth="98.4000244140625" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Rating" />
         </columns>
       </TableView>
       <Button fx:id="favsButton" layoutX="732.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleAction" onMouseClicked="#addSelectedToFav" prefHeight="34.0" prefWidth="150.0" style="-fx-background-color: #E6DA00; -fx-font-weight: bold; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0); -fx-text-fill: white; -fx-stroke-width: 2px; -fx-stroke: black;" text="★ Add To Favourites" textFill="WHITE" AnchorPane.leftAnchor="732.0">
@@ -25,7 +25,6 @@
       <TableView fx:id="filmFavTable" layoutY="289.0" prefHeight="284.0" prefWidth="346.0" style="-fx-background-color: #292526; -fx-border-color: #262440;">
          <columns>
             <TableColumn fx:id="favsCol" prefWidth="341.5999939441681" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Favourites" />
-            <TableColumn prefWidth="409.60003662109375" style="-fx-background-color: #292526; -fx-text-background-color: white;" text="Description" />
          </columns>
       </TableView>
       <Button fx:id="deleteButton" layoutX="623.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleAction" prefHeight="34.0" prefWidth="86.0" style="-fx-background-color: #F5002A; -fx-font-weight: bold; -fx-background-radius: 3; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);" text="Delete" textFill="WHITE">
