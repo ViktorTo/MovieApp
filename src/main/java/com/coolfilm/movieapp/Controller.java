@@ -40,7 +40,7 @@ public class Controller implements Initializable {
     private TableColumn<Film, String> idCol;
 
     @FXML
-    private TableColumn<Film, Integer> ratingCol;
+    private TableColumn<Film, Double> ratingCol;
 
     @FXML
     private TableColumn<Film, String> titleCol;
@@ -74,7 +74,7 @@ public class Controller implements Initializable {
         FilmDAO filmDAO = new FilmDAO();
         idCol.setCellValueFactory(new PropertyValueFactory<Film, String>("id"));
         titleCol.setCellValueFactory(new PropertyValueFactory<Film, String>("title"));
-        ratingCol.setCellValueFactory(new PropertyValueFactory<Film, Integer>("rating"));
+        ratingCol.setCellValueFactory(new PropertyValueFactory<Film, Double>("rating"));
         filmTbl.getItems().addAll(filmDAO.readAllAsList());
 
     }
